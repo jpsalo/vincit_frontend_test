@@ -1,0 +1,15 @@
+<div class="container mt-1">
+
+  <div class="card-deck">
+
+    <div class="card" *ngFor="let repository of repositories" [@fadeIn]="'in'">
+      <div class="card-block">
+        <h4 class="card-title">{{ repository.title }}</h4>
+        <h6 class="card-subtitle text-muted">{{ repository.description }}</h6>
+      </div>
+      <canvas class="myChart" width="400" height="400"></canvas>
+    </div>
+
+  </div>
+
+</div>

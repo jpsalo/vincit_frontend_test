@@ -1,0 +1,24 @@
+
+// http://www.codeply.com/go/YFFFWHVoRB
+// http://treyhunner.com/2015/02/creating-a-custom-bootstrap-build/
+// http://v4-alpha.getbootstrap.com/layout/overview/#responsive-breakpoints
+@import "~bootstrap/scss/bootstrap-flex.scss";
+
+@include media-breakpoint-up(sm) {
+  .card-deck > .card
+  {
+    width: 44%;
+    flex-wrap: wrap;
+    flex: initial;
+    margin-bottom: 0.75rem;
+  }
+}
+
+@include media-breakpoint-up(lg) {
+  .card-deck > .card
+  {
+    width: 29%;
+    flex-wrap: wrap;
+    flex: initial;
+  }
+}
