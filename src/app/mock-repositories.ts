@@ -1,28 +1,84 @@
-import { Repository } from './repository';
+import {Repository} from './repository';
 
 export const REPOSITORIES: Repository[] = [
   {
     title: 'Windstrom',
     description: 'Asd',
-    text: 'This is a longer card with supporting text below as a natural lead-in to additional content. ' +
-    'This content is a little bit longer.'
+    contributors: [
+      {
+        name: 'Vihtori',
+        commits: 20
+      },
+      {
+        name: 'Tohtori',
+        commits: 12
+      },
+      {
+        name: 'Lehtori',
+        commits: 22
+      },
+      {
+        name: 'Ähtäri',
+        commits: 221
+      },
+      {
+        name: 'Jääkäri',
+        commits: 221
+      }
+    ]
   },
   {
-    title: 'Kalle',
+    title: 'Kalle NSFW',
     description: 'Foo',
-    text: 'This is a longer card with supporting text below as a natural lead-in to additional content. ' +
-    'This content is a little bit longer.'
+    contributors: [
+      {
+        name: 'Pastori',
+        commits: 2
+      },
+      {
+        name: 'Pastirol',
+        commits: 200
+      },
+      {
+        name: 'Vihtori',
+        commits: 132
+      }
+    ]
   },
   {
-    title: 'Pelle',
+    title: 'Pelle Miljaardi',
     description: 'Code',
-    text: 'This is a longer card with supporting text below as a natural lead-in to additional content. ' +
-    'This content is a little bit longer.'
+    contributors: [
+      {
+        name: 'Toritori',
+        commits: 1
+      },
+      {
+        name: 'Rohto',
+        commits: 222
+      },
+      {
+        name: 'Alpo',
+        commits: 5
+      }
+    ]
   },
   {
-    title: 'Ville',
+    title: 'Villen ohjelma',
     description: 'eke',
-    text: 'This is a longer card with supporting text below as a natural lead-in to additional content. ' +
-    'This content is a little bit longer.'
+    contributors: [
+      {
+        name: 'Vihtori',
+        commits: 2
+      },
+      {
+        name: 'Inspehtoori',
+        commits: 221
+      },
+      {
+        name: 'Jalmari',
+        commits: 1
+      }
+    ]
   }
 ];
