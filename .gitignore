@@ -38,6 +38,7 @@ Thumbs.db
 ### Less ###
 *.css
 
+!styles.css
 
 ### Node ###
 # Logs
