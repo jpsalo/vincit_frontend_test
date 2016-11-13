@@ -27,7 +27,8 @@ export const REPOSITORIES: Repository[] = [
         name: 'Jääkäri',
         contributions: 221
       }
-    ]
+    ],
+    commitsInTotal: 199
   },
   {
     id: 134,
@@ -47,7 +48,8 @@ export const REPOSITORIES: Repository[] = [
         name: 'Vihtori',
         contributions: 132
       }
-    ]
+    ],
+    commitsInTotal: 199
   },
   {
     id: 1643,
@@ -67,7 +69,8 @@ export const REPOSITORIES: Repository[] = [
         name: 'Alpo',
         contributions: 5
       }
-    ]
+    ],
+    commitsInTotal: 199
   },
   {
     id: 115,
@@ -87,7 +90,8 @@ export const REPOSITORIES: Repository[] = [
         name: 'Jalmari',
         contributions: 1
       }
-    ]
+    ],
+    commitsInTotal: 199
   },
   {
     id: 12,
@@ -107,6 +111,7 @@ export const REPOSITORIES: Repository[] = [
         name: 'Jalmari',
         contributions: 1
       }
-    ]
+    ],
+    commitsInTotal: 199
   }
 ];
