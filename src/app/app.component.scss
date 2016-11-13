@@ -4,8 +4,7 @@
 @import "~bootstrap/scss/bootstrap-flex.scss";
 
 @include media-breakpoint-up(sm) {
-  .card-deck > .card
-  {
+  .card-deck > .card {
     width: 44%;
     flex-wrap: wrap;
     flex: initial;
@@ -14,8 +13,7 @@
 }
 
 @include media-breakpoint-up(lg) {
-  .card-deck > .card
-  {
+  .card-deck > .card {
     width: 29%;
     flex-wrap: wrap;
     flex: initial;
@@ -26,7 +24,7 @@
 .card {
   border: none;
   border-radius: initial;
-  background-color: #eddbcd;  /* 47 pastel beach */
+  background-color: #eddbcd; /* 47 pastel beach */
 }
 
 .card-title {

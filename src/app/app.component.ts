@@ -39,6 +39,8 @@ export class AppComponent {
   constructor(private gitHubDataService: GitHubDataService) {
   }
 
+
+
   getRepositories(): void {
     this.gitHubDataService.getRepositories('Vincit').subscribe(
       repositories => this.repositoriesSubscription(repositories));

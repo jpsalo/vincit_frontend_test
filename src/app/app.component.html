@@ -1,14 +1,19 @@
-<div class="container mt-1">
+<div class="container mt-2 mb-3">
 
   <div class="card-deck">
 
     <div class="card" *ngFor="let repository of repositories" [@fadeIn]="'in'">
       <div class="card-block">
-        <h4 class="card-title">{{ repository.name }}</h4>
+        <h4 class="card-title">
+          <a href="{{ repository.url }}" target="_blank">{{ repository.name }}</a>
+        </h4>
         <h6 class="card-subtitle text-muted">{{ repository.description }}</h6>
       </div>
       <repository-chart [repository]="repository" [contributors]="repository.contributors"></repository-chart>
     </div>
 
   </div>
+
+  <img src="favicon.ico" alt="..." class="mx-auto d-block">
+
 </div>
