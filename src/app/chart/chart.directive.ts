@@ -17,7 +17,7 @@ export class ChartDirective {
     this.initializeChart();
   }
 
-  initializeChart(): void {
+  private initializeChart(): void {
     let chartData = {
       labels: this.data['labels'],
       datasets: [{

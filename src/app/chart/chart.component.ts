@@ -17,12 +17,12 @@ export class ChartComponent {
 
   @ViewChild(ChartDirective) private chartDirective: ChartDirective;
 
-  data: Object;
+  private data: Object;
 
   @Input() repository: Repository;
   @Input() contributors: Array<Object>;
 
-  initializeData() {
+  private initializeData() {
     let limit = 5;
     let contributors = this.gitHubDataService.getContributors(this.repository, limit);
     this.data = {

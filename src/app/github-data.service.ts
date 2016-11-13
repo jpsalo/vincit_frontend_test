@@ -1,7 +1,7 @@
 import {Injectable} from '@angular/core';
-import {Repository} from './repository';
-
 import {Http, Response} from '@angular/http';
+
+import {Repository} from './repository';
 import {Observable} from 'rxjs/Rx';
 
 @Injectable()
@@ -12,7 +12,7 @@ export class GitHubDataService {
   }
 
   getRepositories(username: string) {
-    var repositories = this.http.get(this.baseUrl + 'users/' + username + '/repos')
+    let repositories = this.http.get(this.baseUrl + 'users/' + username + '/repos')
       .map(this.extractRepositories);
 
     return repositories;
@@ -79,7 +79,7 @@ export class GitHubDataService {
 
   private calculateTotalNumberOfCommits(contributors) {
     // http://stackoverflow.com/a/6300596
-    let commitsInTotal = contributors.reduce(function(previous, current) {
+    let commitsInTotal = contributors.reduce(function (previous, current) {
       return previous + current['contributions'];
     }, 0);
     return commitsInTotal;
