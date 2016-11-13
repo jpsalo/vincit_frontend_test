@@ -34,23 +34,28 @@
   }
 }
 
-$card-color: #eddbcd;
-$card-title-background-color: #d5d5d5;
+$card-front-background-color: #eddbcd;  // 47 pastel beach
+$site-background-color: #f7f7f9;  // bootstrap <code> background
+$card-background-color: #d5d5d5;   // 6 paper
 
 //https://designschool.canva.com/blog/website-color-schemes/
 .card {
   border: none;
   border-radius: initial;
-  background-color: $card-color; /* 47 pastel beach */
+  background-color: $site-background-color;
 
-  > .card-block:first-child {
-    background-color: #d5d5d5; // 6 paper
+  > .card-block:first-child,
+  .back {
+    background-color: $card-background-color;
   }
 
   &:hover {
-    background-color: darken($card-color, 3%);
-    > .card-block:first-child {
-      background-color: darken($card-title-background-color, 3%);
+    .front {
+      background-color: darken($card-front-background-color, 3%);
+    }
+    > .card-block:first-child,
+    .back {
+      background-color: darken($card-background-color, 3%);
     }
   }
 
@@ -67,5 +72,51 @@ $card-title-background-color: #d5d5d5;
 
 .repository-chart {
   display: block;
-  margin-top: 20px;
+  padding-top: 20px;
+}
+
+//https://davidwalsh.name/css-flip
+/* entire container, keeps perspective */
+.flip-container {
+  perspective: 1000px;
+
+  /* flip the pane */
+  &.flip .flipper {
+    transform: rotateY(180deg);
+  }
+
+  /* flip speed goes here */
+  .flipper {
+    transition: 0.6s;
+    transform-style: preserve-3d;
+    position: relative;
+    height: 100%;
+    margin: -20px; // TODO: override bootstrap margin variable
+  }
+
+  /* hide back of pane during swap */
+  .front,
+  .back {
+    backface-visibility: hidden;
+    top: 0;
+    left: 0;
+  }
+
+  /* front pane, placed above back */
+  .front {
+    z-index: 2;
+    /* for firefox 31 */
+    transform: rotateY(0deg);
+    background-color: $card-front-background-color;
+  }
+
+  /* back, initially hidden pane */
+  .back {
+    transform: rotateY(180deg);
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    padding: 20px; // TODO: override bootstrap margin variable
+    background-color: $card-background-color;
+  }
 }

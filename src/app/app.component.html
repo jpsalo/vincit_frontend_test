@@ -4,12 +4,32 @@
 
     <div class="card" *ngFor="let repository of repositories" [@fadeIn]="'in'">
       <div class="card-block">
+        <button class="btn btn-sm float-xs-right" (click)="toggleCardActive(repository.id)"></button>
         <h4 class="card-title">
           <a href="{{ repository.url }}" target="_blank">{{ repository.name }}</a>
         </h4>
         <h6 class="card-subtitle text-muted">{{ repository.description }}</h6>
       </div>
-      <repository-chart [repository]="repository" [contributors]="repository.contributors" class="repository-chart"></repository-chart>
+
+      <div class="card-block flip-container" [ngClass]="{'flip': isCardActive(repository.id) }">
+        <div class="flipper">
+
+          <repository-chart [repository]="repository" [contributors]="repository.contributors"
+                            class="front repository-chart">
+          </repository-chart>
+
+          <div class="back">
+            <dl>
+              <dt>Contributors:</dt>
+              <dd>{{ repository.contributors.length }}</dd>
+              <dt>Commits:</dt>
+              <dd>{{ repository.commitsInTotal }}</dd>
+            </dl>
+          </div>
+
+        </div>
+      </div>
+
     </div>
 
   </div>

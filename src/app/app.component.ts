@@ -36,10 +36,23 @@ export class AppComponent {
   repositories: Repository[];
   contributors: Array<Object>;
 
-  constructor(private gitHubDataService: GitHubDataService) {
+  activeCards: number[] = [];
+
+  toggleCardActive(id) {
+    let index = this.activeCards.indexOf(id);
+    if (index !== -1) {
+      this.activeCards.splice(index, 1);
+    } else {
+      this.activeCards.push(id);
+    }
   }
 
+  isCardActive(id) {
+    return this.activeCards.indexOf(id) !== -1;
+  }
 
+  constructor(private gitHubDataService: GitHubDataService) {
+  }
 
   getRepositories(): void {
     this.gitHubDataService.getRepositories('Vincit').subscribe(
@@ -52,13 +65,12 @@ export class AppComponent {
   }
 
   getContributions(repositories: Repository[]): void {
-    this.gitHubDataService.getContributions(repositories, 'Vincit').subscribe(res => this.foo(res, repositories));
+    this.gitHubDataService.getContributions(repositories, 'Vincit').subscribe(res => this.contributionsSubscription(res, repositories));
   }
 
-  foo(contributors, repositories: Repository[]) {
+  contributionsSubscription(contributors, repositories: Repository[]) {
     this.contributors = contributors;
     this.repositories = this.gitHubDataService.addContributorsToRepository(repositories, contributors);
-
   }
 
   ngOnInit(): void {

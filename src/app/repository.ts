@@ -4,4 +4,5 @@ export class Repository {
   description: string;
   url: string;
   contributors: Object[];
+  commitsInTotal: number;
 }

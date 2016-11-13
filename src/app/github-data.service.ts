@@ -13,7 +13,7 @@ export class GitHubDataService {
 
   getRepositories(username: string) {
     var repositories = this.http.get(this.baseUrl + 'users/' + username + '/repos')
-      .map(this.extractData);
+      .map(this.extractRepositories);
 
     return repositories;
   }
@@ -24,13 +24,13 @@ export class GitHubDataService {
     for (let i = 0; i < repositories.length; i++) {
       let repository = repositories[i];
       observableBatch.push(this.http.get(this.baseUrl + 'repos/' + username + '/' + repository.name + '/contributors')
-        .map(this.extract(repository.id)));
+        .map(this.extractContributors(repository.id)));
     }
     return Observable.forkJoin(observableBatch);
   }
 
   // http://stackoverflow.com/a/12344111
-  private extract(repositoryId) {
+  private extractContributors(repositoryId) {
     return function (response) {
       let body = response.json();
 
@@ -47,7 +47,7 @@ export class GitHubDataService {
     }
   }
 
-  private extractData(response: Response) {
+  private extractRepositories(response: Response) {
     let body = response.json();
 
     let repositories: Repository[] = body.map(function (repository) {
@@ -65,7 +65,7 @@ export class GitHubDataService {
   }
 
   getContributors(repository: Repository, limit: number): Object[] {
-    let contributors = repository.contributors.map(function (contributor: Object) {
+    let contributors: Object[] = repository.contributors.map(function (contributor: Object) {
       let contributorNameAndContributions = {
         name: contributor['name'],
         contributions: contributor['contributions']
@@ -77,11 +77,20 @@ export class GitHubDataService {
     return contributors.slice(0, limit);
   }
 
+  private calculateTotalNumberOfCommits(contributors) {
+    // http://stackoverflow.com/a/6300596
+    let commitsInTotal = contributors.reduce(function(previous, current) {
+      return previous + current['contributions'];
+    }, 0);
+    return commitsInTotal;
+  }
+
   addContributorsToRepository(repositories: Repository[], contributors): Repository[] {
     for (let i = 0; i < contributors.length; i++) {
       for (let j = 0; j < repositories.length; j++) {
         if (repositories[j].id === contributors[i][0]['repositoryId']) {
           repositories[j].contributors = contributors[i];
+          repositories[j].commitsInTotal = this.calculateTotalNumberOfCommits(contributors[i]);
           break;
         }
       }
