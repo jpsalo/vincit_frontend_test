@@ -1,3 +1,13 @@
 body {
   background-color: #f7f7f9;
 }
+
+/*http://stackoverflow.com/a/38982635*/
+.total-center {
+  height: 100%;
+  width: 100%;
+  display: flex;
+  position: fixed;
+  align-items: center;
+  justify-content: center;
+}
