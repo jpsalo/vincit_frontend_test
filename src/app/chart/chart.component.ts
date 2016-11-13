@@ -23,9 +23,11 @@ export class ChartComponent {
   @Input() contributors: Array<Object>;
 
   initializeData() {
+    let limit = 5;
+    let contributors = this.gitHubDataService.getContributors(this.repository, limit);
     this.data = {
-      labels: this.gitHubDataService.getContributorsNames(this.repository),
-      values: this.gitHubDataService.getTopCommits(this.repository)
+      labels: contributors.map(contribution => contribution['name']),
+      values: contributors.map(contribution => contribution['contributions'])
     };
   }
 

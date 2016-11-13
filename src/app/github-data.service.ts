@@ -64,20 +64,17 @@ export class GitHubDataService {
     return repositories;
   }
 
-  getContributorsNames(repository: Repository): string[] {
-    let contributorsNames = repository.contributors.map(function (contributor: Object) {
-      return contributor['name'];
+  getContributors(repository: Repository, limit: number): Object[] {
+    let contributors = repository.contributors.map(function (contributor: Object) {
+      let contributorNameAndContributions = {
+        name: contributor['name'],
+        contributions: contributor['contributions']
+      };
+      return contributorNameAndContributions;
     });
 
-    return contributorsNames;
-  }
-
-  getTopCommits(repository: Repository): number[] {
-    let topCommits = repository.contributors.map(function (contributor: Object) {
-      return contributor['contributions'];
-    });
-
-    return topCommits;
+    // http://stackoverflow.com/a/34883368
+    return contributors.slice(0, limit);
   }
 
   addContributorsToRepository(repositories: Repository[], contributors): Repository[] {
