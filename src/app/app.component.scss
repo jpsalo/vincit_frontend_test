@@ -13,6 +13,9 @@
 }
 
 @include media-breakpoint-up(sm) {
+  .card-deck {
+    justify-content: center;
+  }
   .card-deck > .card {
     width: 44%;
     flex-wrap: wrap;
