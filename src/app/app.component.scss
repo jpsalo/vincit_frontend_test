@@ -1,4 +1,3 @@
-
 // http://www.codeply.com/go/YFFFWHVoRB
 // http://treyhunner.com/2015/02/creating-a-custom-bootstrap-build/
 // http://v4-alpha.getbootstrap.com/layout/overview/#responsive-breakpoints
@@ -23,8 +22,19 @@
   }
 }
 
+//https://designschool.canva.com/blog/website-color-schemes/
+.card {
+  border: none;
+  border-radius: initial;
+  background-color: #eddbcd;  /* 47 pastel beach */
+}
+
 .card-title {
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
+}
+
+.card-subtitle {
+  font-weight: lighter;
 }
