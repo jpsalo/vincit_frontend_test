@@ -12,7 +12,12 @@ export class ChartDirective {
 
   @Input('repositoryChart') data: Object;
 
-  ngAfterViewInit(): void {
+  initialize(data) {
+    this.data = data;
+    this.initializeChart();
+  }
+
+  initializeChart(): void {
     let chartData = {
       labels: this.data['labels'],
       datasets: [{
@@ -57,4 +62,5 @@ export class ChartDirective {
       options: options
     });
   }
+
 }

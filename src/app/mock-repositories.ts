@@ -2,82 +2,110 @@ import {Repository} from './repository';
 
 export const REPOSITORIES: Repository[] = [
   {
-    title: 'Windstrom',
+    id: 1,
+    name: 'data_mining_and_information_retrieval',
     description: 'Asd',
+    url: 'example.com',
     contributors: [
       {
         name: 'Vihtori',
-        commits: 20
+        contributions: 20
       },
       {
         name: 'Tohtori',
-        commits: 12
+        contributions: 12
       },
       {
         name: 'Lehtori',
-        commits: 22
+        contributions: 22
       },
       {
         name: 'Ähtäri',
-        commits: 221
+        contributions: 221
       },
       {
         name: 'Jääkäri',
-        commits: 221
+        contributions: 221
       }
     ]
   },
   {
-    title: 'Kalle NSFW',
+    id: 134,
+    name: 'extendedmind',
     description: 'Foo',
+    url: 'example.com',
     contributors: [
       {
         name: 'Pastori',
-        commits: 2
+        contributions: 2
       },
       {
         name: 'Pastirol',
-        commits: 200
+        contributions: 200
       },
       {
         name: 'Vihtori',
-        commits: 132
+        contributions: 132
       }
     ]
   },
   {
-    title: 'Pelle Miljaardi',
+    id: 1643,
+    name: 'vincit_frontend_test',
     description: 'Code',
+    url: 'example.com',
     contributors: [
       {
         name: 'Toritori',
-        commits: 1
+        contributions: 1
       },
       {
         name: 'Rohto',
-        commits: 222
+        contributions: 222
       },
       {
         name: 'Alpo',
-        commits: 5
+        contributions: 5
       }
     ]
   },
   {
-    title: 'Villen ohjelma',
+    id: 115,
+    name: 'riittalahtinen',
     description: 'eke',
+    url: 'example.com',
     contributors: [
       {
         name: 'Vihtori',
-        commits: 2
+        contributions: 2
       },
       {
         name: 'Inspehtoori',
-        commits: 221
+        contributions: 221
       },
       {
         name: 'Jalmari',
-        commits: 1
+        contributions: 1
+      }
+    ]
+  },
+  {
+    id: 12,
+    name: 'minituho',
+    description: 'eke',
+    url: 'example.com',
+    contributors: [
+      {
+        name: 'Vihtori',
+        contributions: 2
+      },
+      {
+        name: 'Inspehtoori',
+        contributions: 221
+      },
+      {
+        name: 'Jalmari',
+        contributions: 1
       }
     ]
   }

@@ -1,5 +1,7 @@
 export class Repository {
-  title: string;
+  id: number;
+  name: string;
   description: string;
+  url: string;
   contributors: Object[];
 }

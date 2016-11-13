@@ -4,10 +4,10 @@
 
     <div class="card" *ngFor="let repository of repositories" [@fadeIn]="'in'">
       <div class="card-block">
-        <h4 class="card-title">{{ repository.title }}</h4>
+        <h4 class="card-title">{{ repository.name }}</h4>
         <h6 class="card-subtitle text-muted">{{ repository.description }}</h6>
       </div>
-      <repository-chart [repository]="repository"></repository-chart>
+      <repository-chart [repository]="repository" [contributors]="repository.contributors"></repository-chart>
     </div>
 
   </div>
