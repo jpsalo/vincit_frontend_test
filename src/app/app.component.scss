@@ -3,32 +3,26 @@
 // http://v4-alpha.getbootstrap.com/layout/overview/#responsive-breakpoints
 @import "~bootstrap/scss/bootstrap-flex.scss";
 
-.card-deck > .card > .card-block:first-child {
-  background-color: #d5d5d5;  // 6 paper
-}
-
-.repository-chart {
-  display: block;
-  margin-top: 20px;
-}
-
 @include media-breakpoint-up(sm) {
   .card-deck {
     justify-content: center;
-  }
-  .card-deck > .card {
-    width: 44%;
-    flex-wrap: wrap;
-    flex: initial;
-    margin-bottom: 0.75rem;
-  }
-  .card-deck > .card > .card-block:first-child {
-    height: 100px;
-  }
-  .card-subtitle {
-    white-space: nowrap;
-    overflow: hidden;
-    text-overflow: ellipsis;
+
+    > .card {
+      width: 44%;
+      flex-wrap: wrap;
+      flex: initial;
+      margin-bottom: 0.75rem;
+
+      > .card-block:first-child {
+        height: 100px;
+      }
+
+      .card-subtitle {
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+      }
+    }
   }
 }
 
@@ -40,19 +34,38 @@
   }
 }
 
+$card-color: #eddbcd;
+$card-title-background-color: #d5d5d5;
+
 //https://designschool.canva.com/blog/website-color-schemes/
 .card {
   border: none;
   border-radius: initial;
-  background-color: #eddbcd; /* 47 pastel beach */
+  background-color: $card-color; /* 47 pastel beach */
+
+  > .card-block:first-child {
+    background-color: #d5d5d5; // 6 paper
+  }
+
+  &:hover {
+    background-color: darken($card-color, 3%);
+    > .card-block:first-child {
+      background-color: darken($card-title-background-color, 3%);
+    }
+  }
+
+  .card-title {
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+
+  .card-subtitle {
+    font-weight: lighter;
+  }
 }
 
-.card-title {
-  white-space: nowrap;
-  overflow: hidden;
-  text-overflow: ellipsis;
-}
-
-.card-subtitle {
-  font-weight: lighter;
+.repository-chart {
+  display: block;
+  margin-top: 20px;
 }
