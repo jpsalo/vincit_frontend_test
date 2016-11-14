@@ -6,7 +6,6 @@ import {ChartDirective} from "./chart.directive";
 @Component({
   selector: 'repository-chart',
   templateUrl: './chart.component.html',
-  styleUrls: ['./chart.component.scss'],
   providers: [GitHubDataService]
 })
 
